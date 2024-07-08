@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vAwt5AOQz6J6dHZ4OUqYhfBhUd3SOvMxu769CjXogvQ=",
+  "Source": "PaymentResponseApi",
+  "BasePath": "_content/PaymentResponseApi",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
