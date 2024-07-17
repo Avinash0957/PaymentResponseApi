@@ -9,7 +9,7 @@
     ".NETCoreApp,Version=v6.0/linux-x64": {
       "PaymentResponseApi/1.0.0": {
         "dependencies": {
-          "AWSSDK.S3": "3.7.309.10",
+          "AWSSDK.S3": "3.7.310.3",
           "AWSSDK.SecretsManager": "3.7.304.6",
           "Amazon.Lambda.AspNetCoreServer": "9.0.0",
           "MySql.Data": "8.4.0",
@@ -84,28 +84,28 @@
           }
         }
       },
-      "AWSSDK.Core/3.7.304.21": {
+      "AWSSDK.Core/3.7.304.26": {
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.304.21"
+            "fileVersion": "3.7.304.26"
           }
         }
       },
-      "AWSSDK.S3/3.7.309.10": {
+      "AWSSDK.S3/3.7.310.3": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.304.21"
+          "AWSSDK.Core": "3.7.304.26"
         },
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.S3.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.7.309.10"
+            "fileVersion": "3.7.310.3"
           }
         }
       },
       "AWSSDK.SecretsManager/3.7.304.6": {
         "dependencies": {
-          "AWSSDK.Core": "3.7.304.21"
+          "AWSSDK.Core": "3.7.304.26"
         },
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.SecretsManager.dll": {
@@ -516,19 +516,19 @@
       "path": "amazon.lambda.serialization.systemtextjson/2.4.1",
       "hashPath": "amazon.lambda.serialization.systemtextjson.2.4.1.nupkg.sha512"
     },
-    "AWSSDK.Core/3.7.304.21": {
+    "AWSSDK.Core/3.7.304.26": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MD1UcVQPbJmE/s3JJ2/TFc3tuhHqxn5XOMOCKS3WloXFmJM/oKW/e7FEWSmce65WghVKGkscIdCR5Ckh552o7A==",
-      "path": "awssdk.core/3.7.304.21",
-      "hashPath": "awssdk.core.3.7.304.21.nupkg.sha512"
+      "sha512": "sha512-rm5RS5mLiKvzH2EgwGGvXTWhcClBdmj000KuNyrihwbfof6FaTIIXlutFgXUFChqDzb/6c0k0nrkWGd+Ht3oww==",
+      "path": "awssdk.core/3.7.304.26",
+      "hashPath": "awssdk.core.3.7.304.26.nupkg.sha512"
     },
-    "AWSSDK.S3/3.7.309.10": {
+    "AWSSDK.S3/3.7.310.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2eNqXLckwopqLNS+fkZjUmIHMBHZggaOKSQZz/Equgbxke4lVGl04PXWv3od54a2OcdrXbaR/Wyz1i/HFXJPpA==",
-      "path": "awssdk.s3/3.7.309.10",
-      "hashPath": "awssdk.s3.3.7.309.10.nupkg.sha512"
+      "sha512": "sha512-wKbJKKEgJJF66JpPJ5d6OtsuYBF6K9/Ijxt2Aqm5CDexnveMKD1kBTtxKYV3BkdLlKtmEGBq+5M5MCLWIQA/Ww==",
+      "path": "awssdk.s3/3.7.310.3",
+      "hashPath": "awssdk.s3.3.7.310.3.nupkg.sha512"
     },
     "AWSSDK.SecretsManager/3.7.304.6": {
       "type": "package",

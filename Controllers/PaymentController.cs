@@ -46,13 +46,32 @@ namespace PaymentResponseApi.Controllers
            
             try
             {
+                // Log request headers
+                var headers = HttpContext.Request.Headers.ToDictionary(h => h.Key, h => (object)h.Value.ToString());
+                requestData.Add("Headers", headers);
+
+                // Log query parameters
+                var queryParams = HttpContext.Request.Query.ToDictionary(q => q.Key, q => (object)q.Value.ToString());
+                requestData.Add("QueryParameters", queryParams);
+
+                // Log form data if content type is form
+                if (HttpContext.Request.ContentType?.ToLower().Contains("application/x-www-form-urlencoded") == true)
+                {
+                    var form = await HttpContext.Request.ReadFormAsync();
+                    var formData = form.ToDictionary(f => f.Key, f => (object)f.Value.ToString());
+                    requestData.Add("FormData", formData);
+                }
+
+
+
+
                 if (HttpContext.Request.ContentType?.ToLower().Contains("application/json") == true)
                 {
                     // Read JSON body asynchronously
                     using (var reader = new StreamReader(HttpContext.Request.Body))
                     {
                         var requestBody = await reader.ReadToEndAsync();
-                        var data = JsonConvert.DeserializeObject<UserData>(requestBody);
+                        //var data = JsonConvert.DeserializeObject<UserData>(requestBody);
 
                         deserializedObject = JsonConvert.DeserializeObject<Dictionary<string, object>>(requestBody);
 
@@ -74,20 +93,34 @@ namespace PaymentResponseApi.Controllers
                 var response = new
                 {
                     message = "Request processed successfully",
-                    data = requestData
+                    data = requestData["User_data"]
                 };
 
+                string jsonResponse = JsonConvert.SerializeObject(response);
+
+                string serializedResponse = JsonConvert.SerializeObject(jsonResponse);
+
+                Response responseObject = JsonConvert.DeserializeObject<Response>(jsonResponse);
+
+
                 AddPaymnetDataInDb db = new AddPaymnetDataInDb(_configuration);
-                await db.SaveDataInDb(requestData);
-                //await AppendLogToS3(requestData);
-                await AppendLogToAll(requestData);
-                return Ok(response);
+
+                await db.GetDataFromObject(responseObject);
+
+                var logContent = new Dictionary<string, object>
+                {
+                    { "new Response", responseObject },
+                };
+                await AppendLogToAll(logContent);
+
+                
+
+                //await AppendLogToAll(requestData);
+                return Ok(jsonResponse);
             }
             catch (Exception ex)
             {
-                // _logger.LogError(ex, "Error processing request data");
-
-                //await WriteLog(ex.Message);
+                
                 var logContent = new Dictionary<string, object>
                 {
                     { "message", "Internal server error" },
